@@ -3,293 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studi Kasus UCD — TransAgro Spoilage-Route (Kelompok 4)</title>
+  <title>Studi Kasus UCD — TransAgro (Kelompok 4)</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              400: '#4ade80',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
-              950: '#052e16'
-            }
-          }
-        }
-      }
-    }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .glass-panel {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+    body { font-family: 'Inter', sans-serif; }
+    /* Menghilangkan scrollbar untuk tampilan lebih bersih (opsional) */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-emerald-500 selection:text-slate-950">
+<body class="bg-white text-gray-900 min-h-screen antialiased selection:bg-gray-900 selection:text-white">
 
-  <!-- MAIN CONTAINER (FULL WIDE & SPACIOUS) -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-12">
+  <main class="max-w-4xl mx-auto px-6 py-16 md:py-24 space-y-20">
 
-    <!-- HEADER / BANNER PROYEK UTAMA -->
-    <header class="glass-panel rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl border border-slate-800">
-      <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- HEADER / BANNER -->
+    <header class="space-y-6 border-b border-gray-200 pb-12">
+      <div class="flex items-center gap-3 text-xs font-semibold text-gray-500 uppercase tracking-widest">
+        <span>Kelompok 4</span>
+        <span class="text-gray-300">•</span>
+        <span>Metode UCD</span>
+      </div>
+      
+      <div class="space-y-4">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-black">
+          TransAgro Spoilage-Route.
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">
+          Optimalisasi rute distribusi logistik sayur segar terintegrasi data risiko cuaca BMKG di jalur rawan longsor Pujon, Kabupaten Malang.
+        </p>
+      </div>
 
-      <div class="relative z-10 space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
-          <div class="flex items-center gap-3">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-extrabold uppercase tracking-wider">
-              Kelompok 4 • Tugas UI/UX Metode UCD
-            </span>
-            <span class="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-extrabold uppercase tracking-wider">
-              Detail Page Halaman Terpisah Proyek Utama
-            </span>
-          </div>
-          <span class="text-xs text-slate-400 font-mono">Dosen Pengampu: Bu Shofi</span>
-        </div>
-
-        <div class="space-y-3">
-          <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-            TransAgro <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 bg-clip-text text-transparent">Spoilage-Route</span>
-          </h1>
-          <p class="text-base sm:text-lg text-slate-300 font-medium">
-            Studi Kasus Nyata: Optimalisasi Rute Distribusi Sayur Segar Terintegrasi Risiko Cuaca BMKG di Jalur Pegunungan Pujon – Kabupaten Malang
-          </p>
-        </div>
-
-        <!-- TAG KATEGORI PRODUK & TEMA -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-          <div class="bg-slate-900/80 rounded-2xl p-4 border border-slate-800">
-            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Tema Utama (Wajib)</span>
-            <span class="text-sm font-bold text-emerald-400 flex items-center gap-2">
-              🚚 Transportasi Logistik Armada
-            </span>
-          </div>
-          <div class="bg-slate-900/80 rounded-2xl p-4 border border-slate-800">
-            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Kombinasi Tema</span>
-            <span class="text-sm font-bold text-teal-300 flex items-center gap-2">
-              🌾 Komoditas Pertanian Segar
-            </span>
-          </div>
-          <div class="bg-slate-900/80 rounded-2xl p-4 border border-slate-800">
-            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Kondisi Wilayah Real</span>
-            <span class="text-sm font-bold text-amber-400 flex items-center gap-2">
-              ⛈️ Curah Hujan Tinggi BMKG (Pujon)
-            </span>
-          </div>
-        </div>
+      <div class="flex flex-wrap gap-4 pt-4">
+        <span class="inline-flex items-center px-3 py-1 rounded-full border border-gray-300 text-sm text-gray-700 bg-gray-50">
+          Transportasi & Logistik (Utama)
+        </span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full border border-gray-300 text-sm text-gray-700 bg-gray-50">
+          Pertanian & Komoditas
+        </span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full border border-gray-300 text-sm text-gray-700 bg-gray-50">
+          Kondisi Lingkungan (Curah Hujan)
+        </span>
       </div>
     </header>
 
-    <!-- SECTION USER PERSONA (BAMBANG HARIYADI) -->
-    <section class="glass-panel rounded-3xl p-8 md:p-12 border border-slate-800 space-y-8 shadow-2xl">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-slate-800 pb-8">
-        <div class="flex items-center gap-6">
-          <div class="relative">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&h=240&fit=crop&crop=face" 
-                 alt="Bambang Hariyadi" 
-                 class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-emerald-500/50 shadow-xl">
-            <span class="absolute -bottom-2 -right-2 bg-emerald-500 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded-md shadow-lg">BH</span>
-          </div>
-          <div class="space-y-1">
-            <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-400">User Persona Real Target</span>
-            <h2 class="text-2xl sm:text-3xl font-black text-white">Bambang Hariyadi (45 Tahun)</h2>
-            <p class="text-sm sm:text-base text-slate-300 font-medium">Koordinator Logistik Pengepul Sayur • Pujon, Kab. Malang</p>
-            <p class="text-xs text-slate-400">Mengelola keberangkatan 15+ armada truk pengangkut komoditas sayuran segar (Tomat, Kubis, Kentang) harian.</p>
-          </div>
-        </div>
-        <div class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-right">
-          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Metode UCD</span>
-          <span class="text-xs font-bold text-emerald-400">Target Persona Nyata</span>
+    <!-- USER PERSONA -->
+    <section class="space-y-10">
+      <div class="flex items-center gap-6">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&h=240&fit=crop&crop=face" 
+             alt="Bambang Hariyadi" 
+             class="w-20 h-20 rounded-full object-cover grayscale border border-gray-200">
+        <div>
+          <h2 class="text-2xl font-bold text-black">Bambang Hariyadi, 45</h2>
+          <p class="text-gray-600">Koordinator Logistik Pengepul Sayur di Pujon, Malang</p>
         </div>
       </div>
 
-      <!-- GOALS, NEEDS, PAIN POINTS, & UCD SOLUTION GRID -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
         <!-- GOALS -->
-        <div class="bg-slate-900/90 rounded-2xl p-6 border border-emerald-500/20 space-y-4 shadow-lg">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg">
-              🎯
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-emerald-400">Goals (Tujuan Pengguna)</h3>
-              <p class="text-xs text-slate-400">Target utama yang ingin dicapai oleh pengguna</p>
-            </div>
-          </div>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-200">
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-400 font-bold text-base leading-none">✓</span>
-              <span>Mendapatkan rute & jadwal keberangkatan truk yang pasti dan aman dari risiko kemacetan / longsor akibat hujan deras di jalur pegunungan.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-400 font-bold text-base leading-none">✓</span>
-              <span>Menekan tingkat kerusakan dan pembusukan komoditas sayur segar di jalan di bawah 5%.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-400 font-bold text-base leading-none">✓</span>
-              <span>Memiliki sistem pengurutan prioritas armada otomatis berdasarkan tingkat kerentanan komoditas yang diangkut.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- NEEDS -->
-        <div class="bg-slate-900/90 rounded-2xl p-6 border border-teal-500/20 space-y-4 shadow-lg">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-300 font-bold text-lg">
-              🧩
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-teal-300">Needs (Kebutuhan Sistem)</h3>
-              <p class="text-xs text-slate-400">Elemen yang wajib ada pada platform</p>
-            </div>
-          </div>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-200">
-            <li class="flex items-start gap-2.5">
-              <span class="text-teal-300 font-bold text-base leading-none">✓</span>
-              <span>Integrasi data curah hujan BMKG real-time spesifik wilayah rawan Pujon-Malang.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-teal-300 font-bold text-base leading-none">✓</span>
-              <span>Algoritma kalkulasi risiko pembusukan berdasarkan kombinasi kerentanan barang + kondisi cuaca rute.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-teal-300 font-bold text-base leading-none">✓</span>
-              <span>Tampilan rekomendasi keputusan jam keberangkatan & pengalihan rute alternatif dalam sekali lihat.</span>
-            </li>
+        <div class="space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-black border-b border-gray-200 pb-2">Goals</h3>
+          <ul class="space-y-3 text-gray-600 list-disc list-inside">
+            <li>Menemukan rute dan jadwal truk yang aman dari cuaca buruk.</li>
+            <li>Menekan tingkat pembusukan sayur di jalan di bawah 5%.</li>
+            <li>Menyusun prioritas keberangkatan armada secara otomatis.</li>
           </ul>
         </div>
 
         <!-- PAIN POINTS -->
-        <div class="bg-slate-900/90 rounded-2xl p-6 border border-rose-500/20 space-y-4 shadow-lg">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 font-bold text-lg">
-              ✕
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-rose-400">Pain Points (Kendala Lapangan)</h3>
-              <p class="text-xs text-slate-400">Masalah nyata yang dihadapi saat ini</p>
-            </div>
-          </div>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-200">
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-400 font-bold text-base leading-none">✕</span>
-              <span><strong>Kerusakan komoditas mencapai 35%</strong> saat truk terjebak kemacetan atau tebing longsor di jalur pegunungan Pujon akibat hujan deras.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-400 font-bold text-base leading-none">✕</span>
-              <span>Penentuan jam berangkat armada masih <strong>manual dan spekulatif</strong> hanya mengandalkan perkiraan perkiraan cuaca biasa.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-400 font-bold text-base leading-none">✕</span>
-              <span>Proses analisa manual cuaca & rute memakan waktu <strong>10 menit per sesi</strong>, menyebabkan keterlambatan respons saat cuaca memburuk tiba-tiba.</span>
-            </li>
+        <div class="space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-black border-b border-gray-200 pb-2">Pain Points</h3>
+          <ul class="space-y-3 text-gray-600 list-disc list-inside">
+            <li>Jalur distribusi (Pujon) rawan macet total dan longsor saat hujan.</li>
+            <li>Kerusakan sayuran (tomat, kubis) mencapai 30% jika terjebak macet.</li>
+            <li>Keputusan keberangkatan masih menebak-nebak kondisi cuaca.</li>
           </ul>
         </div>
 
-        <!-- UCD SOLUTION -->
-        <div class="bg-slate-900/90 rounded-2xl p-6 border border-sky-500/20 space-y-4 shadow-lg">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-lg">
-              ★
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-sky-400">UCD Solution (Inovasi Novelty)</h3>
-              <p class="text-xs text-slate-400">Solusi desain berpusat pada pengguna</p>
-            </div>
-          </div>
-          <div class="space-y-3 text-xs sm:text-sm text-slate-200">
-            <div class="p-3 bg-sky-950/40 border border-sky-500/20 rounded-xl text-sky-300 font-semibold">
-              <strong>Weather Risk Engine:</strong> Otomatisasi analisa kalkulasi persentase risiko pembusukan komoditas.
-            </div>
-            <p class="leading-relaxed">
-              Sistem memangkas waktu pengambilan keputusan dari <strong>10 menit menjadi 2 menit</strong>. Dalam satu alur pengolahan data, pengurus logistik langsung tahu urutan prioritas keberangkatan armada (misal: Armada Tomat Risiko 85% diprioritaskan berangkat 04.30 WIB via rute tol).
-            </p>
-          </div>
+        <!-- NEEDS -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-black border-b border-gray-200 pb-2">Needs</h3>
+          <ul class="space-y-3 text-gray-600 list-disc list-inside">
+            <li>Integrasi data curah hujan BMKG Malang secara real-time.</li>
+            <li>Indikator visual peringatan rute rawan bencana.</li>
+          </ul>
         </div>
 
+        <!-- SOLUTION -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-black border-b border-gray-200 pb-2">UCD Solution</h3>
+          <p class="text-gray-600 leading-relaxed">
+            <strong>Weather Risk Engine:</strong> Fitur yang mengkalkulasi data hujan BMKG dengan kerentanan sayur. Jika rute terdeteksi rawan longsor, sistem otomatis menyarankan penundaan keberangkatan atau pengalihan rute.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- SECTION LANDASAN DATA ASLI & SUMBER BERITA REAL -->
-    <section class="glass-panel rounded-3xl p-8 md:p-12 border border-slate-800 space-y-8 shadow-2xl">
-      <div class="border-b border-slate-800 pb-6">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-400">Validasi Data Studi Kasus Nyata</span>
-        <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Sumber Berita Resmi & Reference Data BMKG Wilayah</h2>
-        <p class="text-xs sm:text-sm text-slate-400 mt-1">Sesuai arahan Bu Shofi: Fitur dibangun berdasarkan data riil wilayah dengan curah hujan tinggi & kerawanan rute distribusi.</p>
+    <!-- VALIDASI DATA / REFERENSI -->
+    <section class="space-y-8 pt-10 border-t border-gray-200">
+      <div>
+        <h2 class="text-2xl font-bold text-black mb-2">Validasi Data Studi Kasus</h2>
+        <p class="text-gray-600">Proyek ini dibangun berdasarkan literatur dan kondisi nyata di lapangan.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <!-- SUMBER BERITA 1 -->
-        <a href="https://news.detik.com/berita/d-6550785/jalur-pujon-malang-terputus-akibat-longsor" target="_blank" rel="noopener" class="block bg-slate-900/80 p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-all group">
-          <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
-            <span class="font-bold text-emerald-400 uppercase tracking-wider">Berita Bencana & Rute Terputus</span>
-            <span>DetikNews</span>
-          </div>
-          <h3 class="text-base font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">
-            Jalur Pegunungan Pujon – Kandangan Rawan Longsor & Hujan Deras
-          </h3>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            Laporan BMKG & BPBD menunjukkan jalur utama distribusi sayur Pujon-Malang sering terputus total akibat material longsor saat intensitas hujan melebihi 100mm/jam.
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- BERITA -->
+        <div class="p-6 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-3">Kondisi Geografis</span>
+          <h4 class="font-bold text-black mb-2">Longsor Jalur Pujon-Malang</h4>
+          <p class="text-sm text-gray-600 mb-4">
+            Berita riil dari media nasional mencatat jalur Payung, Batu hingga Pujon merupakan jalur logistik yang sering terputus total akibat tanah longsor saat hujan deras.
           </p>
-          <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 group-hover:underline">
-            Buka Sumber Berita Resmi →
-          </span>
-        </a>
+          <a href="#" class="text-sm font-semibold text-black underline">Baca Referensi Berita</a>
+        </div>
 
-        <!-- SUMBER BERITA 2 / DATA BMKG -->
-        <a href="https://juanda.jatim.bmkg.go.id/" target="_blank" rel="noopener" class="block bg-slate-900/80 p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
-          <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
-            <span class="font-bold text-teal-400 uppercase tracking-wider">Data Klimatologi & BMKG</span>
-            <span>Stasiun Klimatologi Malang</span>
-          </div>
-          <h3 class="text-base font-bold text-white group-hover:text-teal-400 transition-colors mb-2">
-            Data Curah Hujan Bulanan & Prakiraan Cuaca Pegunungan Malang
-          </h3>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            Data resmi curah hujan bulanan BMKG dijadikan variabel utama pengolahan persentase risiko (*chance risk*) pada algoritma sistem TransAgro.
+        <!-- JURNAL -->
+        <div class="p-6 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-3">Literatur Agribisnis</span>
+          <h4 class="font-bold text-black mb-2">Jurnal Susut Pascapanen (Spoilage)</h4>
+          <p class="text-sm text-gray-600 mb-4">
+            Berdasarkan jurnal penelitian dari Kementerian Pertanian RI, keterlambatan distribusi akibat infrastruktur jalan berkontribusi pada penyusutan kualitas sayur segar hingga 30%.
           </p>
-          <span class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400 group-hover:underline">
-            Buka Data BMKG Jawa Timur →
-          </span>
-        </a>
-
+          <a href="#" class="text-sm font-semibold text-black underline">Baca Referensi Jurnal</a>
+        </div>
       </div>
-
-      <!-- JURNAL RESEARCH DATA -->
-      <div class="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 space-y-3">
-        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Jurnal Rujukan Pembusukan Komoditas (Spoilage Rate)</span>
-        <h4 class="text-sm font-bold text-white">Studi Kerugian Pasca Panen Logistik Hortikultura Pegunungan</h4>
-        <p class="text-xs text-slate-300 leading-relaxed">
-          Rujukan Jurnal Logistik & Transportasi Pertanian: Komoditas seperti tomat segar memiliki masa kritis pembusukan 12 jam pada kelembaban >85%. Penundaan 2 jam di kemacetan akibat cuaca meningkatkan pembusukan hingga 35%.
-        </p>
-      </div>
-
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-400">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>© 2026 Kelompok 4 • Tugas Mata Kuliah UI/UX Metode UCD (Dosen Bu Shofi)</div>
-      <div class="font-mono text-slate-400">TransAgro Spoilage-Route • Pujon Malang Case Study</div>
-    </div>
+  <footer class="max-w-4xl mx-auto px-6 py-12 text-center border-t border-gray-200 text-sm text-gray-500">
+    <p>© 2026 Universitas Negeri Malang — Mata Kuliah UI/UX Desain.</p>
   </footer>
 
 </body>
