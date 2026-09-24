@@ -3,159 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studi Kasus UCD — TransAgro (Kelompok 4)</title>
+  <title>Papan Brainstorming UCD — TaniFresh-Express & TransAgro (Kelompok 4)</title>
+  <!-- React, ReactDOM, Babel for single-page standalone canvas -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    /* Subtle scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+    body { background-color: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; overflow: hidden; }
+    .canvas-container { cursor: grab; user-select: none; }
+    .canvas-container:active { cursor: grabbing; }
+    .node-card { transition: box-shadow 0.2s, transform 0.2s; }
+    .node-card:hover { transform: translateY(-2px); box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.5); }
+    .red-string { stroke: #ef4444; stroke-width: 3; stroke-dasharray: 6; animation: dash 30s linear infinite; }
+    .green-string { stroke: #22c55e; stroke-dasharray: 4; stroke-width: 2.5; }
+    .blue-string { stroke: #3b82f6; stroke-dasharray: 4; stroke-width: 2.5; }
+    @keyframes dash { to { stroke-dashoffset: -1000; } }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900 min-h-screen antialiased selection:bg-black selection:text-white">
+<body class="w-screen h-screen m-0 p-0 overflow-hidden relative select-none">
+  <div id="root" class="w-full h-full"></div>
 
-  <main class="max-w-5xl mx-auto px-6 py-16 md:py-24 space-y-24">
+  <script type="text/babel">
+    const { useState } = React;
 
-    <!-- HEADER / BANNER -->
-    <header class="space-y-6">
-      <div class="flex items-center gap-3 text-xs font-bold text-gray-500 uppercase tracking-widest">
-        <span class="text-black">Kelompok 4</span>
-        <span class="text-gray-300">/</span>
-        <span>UI-UX Design</span>
-        <span class="text-gray-300">/</span>
-        <span>Bu Shofi</span>
-      </div>
-      
-      <div class="space-y-4 max-w-4xl">
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-black leading-tight">
-          TransAgro Spoilage-Route
-        </h1>
-        <p class="text-lg md:text-xl text-gray-500 leading-relaxed">
-          Optimalisasi rute distribusi logistik sayur segar terintegrasi data risiko cuaca BMKG di jalur rawan longsor Pujon, Kabupaten Malang.
-        </p>
-      </div>
+    const initialNodes = [
+      {
+        id: 'node-problem-1',
+        x: 80,
+        y: 120,
+        width: 330,
+        tag: 'BPS JATIM 2025',
+        color: 'border-red-500 bg-red-950/50',
+        title: '🔴 Data Masalah 1: Tengkulak & Margin MPP',
+        content: `Rantai perantara 4-5 tengkulak di Jatim menyebabkan Margin Perdagangan (MPP) membengkak 42.65% - 58.10%. Petani Pujon hanya dapat Rp 12.000/kg padahal harga pasar Rp 35.000/kg.`,
+        pdfLink: 'https://jatim.bps.go.id',
+        pdfTitle: '📄 Link BPS Jatim.pdf'
+      },
+      {
+        id: 'node-problem-2',
+        x: 80,
+        y: 430,
+        width: 330,
+        tag: 'KEMENTAN RI',
+        color: 'border-orange-500 bg-orange-950/50',
+        title: '🔴 Data Masalah 2: Pembusukan Sayur (Post-Harvest)',
+        content: `Tingkat kerusakan pasca-panen (post-harvest loss) komoditas tomat & cabai mencapai 20% - 35% akibat pengangkutan cold-chain buruk dan transit terlalu lama di rute pegunungan.`,
+        pdfLink: 'https://hortikultura.pertanian.go.id',
+        pdfTitle: '📄 Laporan Kementan.pdf'
+      },
+      {
+        id: 'node-geo',
+        x: 480,
+        y: 270,
+        width: 340,
+        tag: 'BMKG MALANG & GOOGLE MAPS',
+        color: 'border-yellow-500 bg-yellow-950/50',
+        title: '🗺️ Geografis & Rute Ekstrem Pujon - Malang',
+        content: `Rute 38.5 km (Pujon - Karangploso - Pasar Induk Gadang Malang) sering mengalami tebing longsor & genangan air akibat curah hujan ekstrem 120mm/jam.`,
+        mapCoords: 'Google Maps: Pujon Malang (-7.8427, 112.4673)',
+        mapUrl: 'https://maps.google.com/?q=-7.8427,112.4673'
+      },
+      {
+        id: 'node-persona',
+        x: 880,
+        y: 120,
+        width: 340,
+        tag: 'PENGEPUL & KOORDINATOR LOGISTIK',
+        color: 'border-emerald-500 bg-emerald-950/50',
+        title: '👤 User Persona: Pak Bambang Hariyadi',
+        content: `Bambang Hariyadi (45 Th) - Pujon, Malang. Mengordinasi 15+ armada truk. Goals: Kerusakan < 5%, butuh kepastian rute aman hujan & jam berangkat efisien.`,
+        image: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80'
+      },
+      {
+        id: 'node-solution-1',
+        x: 1280,
+        y: 100,
+        width: 360,
+        tag: 'DIRECT MICRO-DISTRIBUTION',
+        color: 'border-green-500 bg-green-950/60',
+        title: '🌱 Solusi 1: TaniFresh-Express',
+        content: `Platform B2C/B2B ritel yang menghubungkan petani lokal Pujon langsung dengan konsumen/restoran kota tanpa tengkulak. Pengiriman terdekat berbasis zona & packaging minim plastik.`,
+        badge: 'No Tengkulak • Low Emission'
+      },
+      {
+        id: 'node-solution-2',
+        x: 1280,
+        y: 430,
+        width: 360,
+        tag: 'LOGISTICS RISK ENGINE (UTAMA KELOMPOK 4)',
+        color: 'border-cyan-500 bg-cyan-950/60',
+        title: '🚛 Solusi 2: TransAgro Spoilage-Route',
+        content: `Weather Risk Engine berbasis data BMKG yang kalkulasi otomatis kerentanan pembusukan sayur & mengurutkan prioritas jam keberangkatan truk. Efisiensi 10m -> 2m.`,
+        badge: 'BMKG Data Integrated • Priority Fleet'
+      }
+    ];
 
-      <div class="flex flex-wrap gap-3 pt-4">
-        <span class="px-4 py-1.5 rounded-full border border-gray-300 text-sm font-medium text-black bg-white">
-          Transportasi Logistik
-        </span>
-        <span class="px-4 py-1.5 rounded-full border border-gray-300 text-sm font-medium text-gray-600 bg-white">
-          Komoditas Pertanian
-        </span>
-        <span class="px-4 py-1.5 rounded-full border border-gray-300 text-sm font-medium text-gray-600 bg-white">
-          Kondisi Cuaca (Lingkungan)
-        </span>
-      </div>
-    </header>
+    const connections = [
+      { from: 'node-problem-1', to: 'node-persona', label: 'Monopoli Harga Tengkulak', type: 'red' },
+      { from: 'node-problem-2', to: 'node-geo', label: 'Transit Rute Lambat', type: 'red' },
+      { from: 'node-geo', to: 'node-persona', label: 'Cuaca Ekstrem Pujon', type: 'red' },
+      { from: 'node-persona', to: 'node-solution-1', label: 'Potong Jalur Perantara', type: 'green' },
+      { from: 'node-persona', to: 'node-solution-2', label: 'Prioritas Armada & Weather Engine', type: 'blue' }
+    ];
 
-    <!-- USER PERSONA BENTO GRID -->
-    <section class="space-y-8">
-      
-      <!-- Persona Header Card -->
-      <div class="flex items-center gap-6 p-6 md:p-8 bg-white border border-gray-200 rounded-3xl shadow-sm">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&h=240&fit=crop&crop=face" 
-             alt="Bambang Hariyadi" 
-             class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover grayscale border border-gray-200">
-        <div>
-          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">Target Persona</span>
-          <h2 class="text-2xl md:text-3xl font-bold text-black">Bambang Hariyadi (45)</h2>
-          <p class="text-gray-500 mt-1">Koordinator Logistik Pengepul Sayur • Pujon, Malang</p>
-        </div>
-      </div>
+    function App() {
+      const [nodes, setNodes] = useState(initialNodes);
+      const [pan, setPan] = useState({ x: 0, y: 0 });
+      const [isDraggingCanvas, setIsDraggingCanvas] = useState(false);
+      const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+      const [activeDragNode, setActiveDragNode] = useState(null);
+      const [nodeDragOffset, setNodeDragOffset] = useState({ x: 0, y: 0 });
 
-      <!-- Bento Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- GOALS CARD (White) -->
-        <div class="p-6 md:p-8 bg-white border border-gray-200 rounded-3xl shadow-sm space-y-4">
-          <h3 class="text-xs font-bold uppercase tracking-widest text-black border-b border-gray-100 pb-3">Goals</h3>
-          <ul class="space-y-3 text-sm text-gray-600 list-disc list-inside">
-            <li>Menemukan rute & jadwal truk yang aman dari cuaca ekstrem.</li>
-            <li>Menekan tingkat pembusukan sayur di jalan di bawah 5%.</li>
-            <li>Sistem prioritas keberangkatan armada otomatis.</li>
-          </ul>
-        </div>
+      const handleMouseDownCanvas = (e) => {
+        if (e.target.dataset.type === 'canvas') {
+          setIsDraggingCanvas(true);
+          setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+        }
+      };
 
-        <!-- PAIN POINTS CARD (Light Gray) -->
-        <div class="p-6 md:p-8 bg-gray-100 border border-gray-200 rounded-3xl space-y-4">
-          <h3 class="text-xs font-bold uppercase tracking-widest text-black border-b border-gray-200 pb-3">Pain Points</h3>
-          <ul class="space-y-3 text-sm text-gray-600 list-disc list-inside">
-            <li>Jalur Pujon rawan macet total/longsor saat hujan.</li>
-            <li>Kerusakan sayur (tomat, kubis) capai 30% jika terjebak macet.</li>
-            <li>Keputusan rute hanya bermodal insting dan tebakan.</li>
-          </ul>
-        </div>
+      const handleMouseMove = (e) => {
+        if (isDraggingCanvas) {
+          setPan({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
+        } else if (activeDragNode) {
+          setNodes(prev => prev.map(node => {
+            if (node.id === activeDragNode) {
+              return {
+                ...node,
+                x: e.clientX - pan.x - nodeDragOffset.x,
+                y: e.clientY - pan.y - nodeDragOffset.y
+              };
+            }
+            return node;
+          }));
+        }
+      };
 
-        <!-- NEEDS CARD (White) -->
-        <div class="p-6 md:p-8 bg-white border border-gray-200 rounded-3xl shadow-sm space-y-4">
-          <h3 class="text-xs font-bold uppercase tracking-widest text-black border-b border-gray-100 pb-3">Needs</h3>
-          <ul class="space-y-3 text-sm text-gray-600 list-disc list-inside">
-            <li>Integrasi data curah hujan BMKG Malang secara real-time.</li>
-            <li>Notifikasi visual jika rute distribusi terdeteksi rawan bencana.</li>
-          </ul>
-        </div>
-        
-        <!-- UCD SOLUTION CARD (Black Inverted - Spans 3 columns on desktop) -->
-        <div class="md:col-span-3 p-6 md:p-8 bg-black border border-black rounded-3xl shadow-lg space-y-4 text-white flex flex-col md:flex-row md:items-center gap-6">
-          <div class="md:w-1/3">
-            <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">UCD Innovation</h3>
-            <h4 class="text-xl font-bold text-white">Weather Risk Engine</h4>
+      const handleMouseUp = () => {
+        setIsDraggingCanvas(false);
+        setActiveDragNode(null);
+      };
+
+      const handleMouseDownNode = (e, nodeId) => {
+        e.stopPropagation();
+        setActiveDragNode(nodeId);
+        const node = nodes.find(n => n.id === nodeId);
+        setNodeDragOffset({
+          x: e.clientX - pan.x - node.x,
+          y: e.clientY - pan.y - node.y
+        });
+      };
+
+      const getNodeCenter = (id) => {
+        const n = nodes.find(item => item.id === id);
+        if (!n) return { x: 0, y: 0 };
+        return { x: n.x + n.width / 2, y: n.y + 100 };
+      };
+
+      return (
+        <div 
+          data-type="canvas"
+          className="w-full h-full relative overflow-hidden bg-slate-950 canvas-container"
+          onMouseDown={handleMouseDownCanvas}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+        >
+          {/* Header Panel */}
+          <div className="absolute top-4 left-6 z-50 bg-slate-900/90 backdrop-blur border border-slate-800 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-4">
+            <div className="bg-red-500/20 text-red-400 p-2 rounded-xl text-xl font-bold">
+              🧵
+            </div>
+            <div>
+              <h1 className="font-bold text-base text-slate-100">Papan Brainstorming & Riset UCD (tldraw Style • Kelompok 4)</h1>
+              <p className="text-xs text-slate-400">Peta Hubungan Benang Merah Interaktif: Data Riset BPS/BMKG ➔ Persona ➔ Solusi TaniFresh & TransAgro</p>
+            </div>
+            <div className="ml-4 flex items-center gap-2 text-xs">
+              <span className="px-2.5 py-1 bg-red-950/60 border border-red-500/50 text-red-400 rounded-full font-medium">🔴 Benang Merah (Problem)</span>
+              <span className="px-2.5 py-1 bg-green-950/60 border border-green-500/50 text-green-400 rounded-full font-medium">🟢 Solusi B2C</span>
+              <span className="px-2.5 py-1 bg-blue-950/60 border border-blue-500/50 text-blue-400 rounded-full font-medium">🔵 Solusi B2B Utama</span>
+            </div>
           </div>
-          <div class="md:w-2/3">
-            <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-              Algoritma yang mengkalkulasi data hujan BMKG dengan tingkat kerentanan sayur. Jika rute Pujon terdeteksi rawan longsor, sistem otomatis menahan jam keberangkatan atau mengalihkan truk ke rute alternatif untuk mencegah <span class="font-bold text-white">Spoilage (pembusukan)</span>.
-            </p>
+
+          {/* Canvas Viewport */}
+          <div 
+            style={{ transform: `translate(${pan.x}px, ${pan.y}px)` }}
+            className="absolute inset-0 pointer-events-none"
+          >
+            {/* SVG Connection Lines */}
+            <svg className="absolute inset-0 w-[5000px] h-[5000px] pointer-events-none z-10">
+              {connections.map((conn, idx) => {
+                const start = getNodeCenter(conn.from);
+                const end = getNodeCenter(conn.to);
+                const midX = (start.x + end.x) / 2;
+                const midY = (start.y + end.y) / 2 - 30;
+
+                let stringClass = "red-string";
+                if (conn.type === 'green') stringClass = "green-string";
+                if (conn.type === 'blue') stringClass = "blue-string";
+
+                return (
+                  <g key={idx}>
+                    <path 
+                      d={`M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`} 
+                      fill="none" 
+                      className={stringClass} 
+                    />
+                    <rect x={midX - 65} y={midY - 12} width="130" height="24" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="1" />
+                    <text x={midX} y={midY + 4} textAnchor="middle" fill="#94a3b8" fontSize="10" fontWeight="bold">
+                      {conn.label}
+                    </text>
+                  </g>
+                );
+              })}
+            </svg>
+
+            {/* Canvas Nodes */}
+            {nodes.map((node) => (
+              <div
+                key={node.id}
+                onMouseDown={(e) => handleMouseDownNode(e, node.id)}
+                style={{
+                  left: `${node.x}px`,
+                  top: `${node.y}px`,
+                  width: `${node.width}px`
+                }}
+                className={`absolute pointer-events-auto rounded-2xl border-2 p-5 shadow-2xl backdrop-blur-md node-card cursor-grab active:cursor-grabbing z-20 ${node.color}`}
+              >
+                <div className="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">{node.tag}</span>
+                  <span className="w-2 h-2 rounded-full bg-slate-500 animate-pulse"></span>
+                </div>
+
+                <h3 className="font-bold text-sm text-slate-100 mb-2 leading-snug">{node.title}</h3>
+                <p className="text-xs text-slate-300 leading-relaxed mb-4">{node.content}</p>
+
+                {node.image && (
+                  <div className="mb-4 rounded-xl overflow-hidden border border-slate-700/80 shadow-inner">
+                    <img src={node.image} alt="Persona" className="w-full h-32 object-cover" />
+                  </div>
+                )}
+
+                {node.pdfLink && (
+                  <a 
+                    href={node.pdfLink} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    onClick={(e) => e.stopPropagation()} 
+                    className="inline-flex items-center gap-2 text-xs font-medium text-red-400 bg-red-950/80 border border-red-800/80 px-3 py-1.5 rounded-lg hover:bg-red-900 transition-colors"
+                  >
+                    <span>{node.pdfTitle}</span>
+                    <span>↗</span>
+                  </a>
+                )}
+
+                {node.mapCoords && (
+                  <a 
+                    href={node.mapUrl} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    onClick={(e) => e.stopPropagation()} 
+                    className="inline-flex items-center gap-2 text-xs font-medium text-yellow-400 bg-yellow-950/80 border border-yellow-800/80 px-3 py-1.5 rounded-lg hover:bg-yellow-900 transition-colors"
+                  >
+                    <span>📍 {node.mapCoords}</span>
+                    <span>↗</span>
+                  </a>
+                )}
+
+                {node.badge && (
+                  <span className="inline-block text-[11px] font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800/80 px-3 py-1 rounded-full">
+                    {node.badge}
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
+      );
+    }
 
-      </div>
-    </section>
-
-    <!-- VALIDASI DATA / REFERENSI -->
-    <section class="space-y-8 pt-8">
-      <div>
-        <h2 class="text-xl md:text-2xl font-bold text-black mb-2">Validasi Data Studi Kasus</h2>
-        <p class="text-gray-500 text-sm">Landasan fitur dibangun berdasarkan literatur dan kondisi nyata di lapangan.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- BERITA CARD -->
-        <div class="p-6 md:p-8 bg-white border border-gray-200 rounded-3xl hover:border-black transition-colors group cursor-pointer shadow-sm">
-          <div class="flex justify-between items-start mb-4">
-            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Kondisi Geografis</span>
-            <span class="text-gray-400 group-hover:text-black transition-colors">↗</span>
-          </div>
-          <h4 class="text-lg font-bold text-black mb-3">Tanah Longsor Jalur Pujon-Malang</h4>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Berita riil dari media nasional mencatat jalur Payung, Batu hingga Pujon merupakan jalur logistik yang sering terputus total akibat tanah longsor saat hujan deras.
-          </p>
-        </div>
-
-        <!-- JURNAL CARD -->
-        <div class="p-6 md:p-8 bg-white border border-gray-200 rounded-3xl hover:border-black transition-colors group cursor-pointer shadow-sm">
-          <div class="flex justify-between items-start mb-4">
-            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Literatur Agribisnis</span>
-            <span class="text-gray-400 group-hover:text-black transition-colors">↗</span>
-          </div>
-          <h4 class="text-lg font-bold text-black mb-3">Jurnal Susut Pascapanen (Spoilage)</h4>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Berdasarkan jurnal penelitian dari Kementerian Pertanian RI, keterlambatan distribusi akibat terhambatnya infrastruktur jalan berkontribusi pada penyusutan kualitas sayur segar hingga 30%.
-          </p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="max-w-5xl mx-auto px-6 py-12 text-left border-t border-gray-200 text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4">
-    <p>© 2026 UI/UX Design Group 4.</p>
-    <p class="font-medium text-gray-500">Universitas Negeri Malang</p>
-  </footer>
-
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
 </body>
 </html>
