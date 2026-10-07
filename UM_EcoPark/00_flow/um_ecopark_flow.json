@@ -1,0 +1,184 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "lanes": [
+    {
+      "id": "main",
+      "label": "Mahasiswa - Alur Utama"
+    },
+    {
+      "id": "alt",
+      "label": "Gedung Penuh - Alternatif"
+    },
+    {
+      "id": "err",
+      "label": "Error & Fallback",
+      "variant": "exception"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "open",
+      "lane": "main",
+      "col": 0,
+      "type": "frontend",
+      "label": "Buka Aplikasi",
+      "sublabel": "06.45 di kos",
+      "width": 96
+    },
+    {
+      "id": "home",
+      "lane": "main",
+      "col": 1,
+      "type": "frontend",
+      "label": "Beranda",
+      "sublabel": "3 gedung status",
+      "width": 96
+    },
+    {
+      "id": "pick",
+      "lane": "main",
+      "col": 2,
+      "type": "frontend",
+      "label": "Detail Gedung",
+      "sublabel": "peta slot L1-L3",
+      "width": 96
+    },
+    {
+      "id": "slot",
+      "lane": "main",
+      "col": 3,
+      "type": "frontend",
+      "label": "Slot Terpilih",
+      "sublabel": "numero + zona",
+      "width": 96
+    },
+    {
+      "id": "navigate",
+      "lane": "main",
+      "col": 4,
+      "type": "frontend",
+      "label": "Navigasi",
+      "sublabel": "3 langkah",
+      "width": 96
+    },
+    {
+      "id": "parked",
+      "lane": "alt",
+      "col": 5,
+      "type": "external",
+      "label": "Parkir + Eco",
+      "sublabel": "QRIS + emisi",
+      "width": 108
+    },
+    {
+      "id": "full",
+      "lane": "alt",
+      "col": 2,
+      "type": "frontend",
+      "label": "Status Merah",
+      "sublabel": "gedung penuh",
+      "width": 96
+    },
+    {
+      "id": "altpick",
+      "lane": "alt",
+      "col": 3,
+      "type": "frontend",
+      "label": "Rekomendasi",
+      "sublabel": "FEB / Rektorat",
+      "width": 100
+    },
+    {
+      "id": "errdata",
+      "lane": "err",
+      "col": 2,
+      "type": "security",
+      "label": "Sensor Mati",
+      "sublabel": "data basi + lapor",
+      "width": 112
+    },
+    {
+      "id": "erract",
+      "lane": "err",
+      "col": 4,
+      "type": "security",
+      "label": "Lapor",
+      "sublabel": "signage fisik",
+      "width": 96
+    }
+  ],
+  "edges": [
+    {
+      "from": "open",
+      "to": "home",
+      "label": "buka",
+      "variant": "emphasis"
+    },
+    {
+      "from": "home",
+      "to": "pick",
+      "label": "tap status",
+      "variant": "emphasis"
+    },
+    {
+      "from": "pick",
+      "to": "slot",
+      "label": "expand L",
+      "variant": "emphasis"
+    },
+    {
+      "from": "slot",
+      "to": "navigate",
+      "label": "tap Navigasi",
+      "variant": "emphasis"
+    },
+    {
+      "from": "navigate",
+      "to": "parked",
+      "label": "slot + eco",
+      "variant": "emphasis"
+    },
+    {
+      "from": "pick",
+      "to": "full",
+      "label": "0 slot",
+      "variant": "security",
+      "role": "branch"
+    },
+    {
+      "from": "full",
+      "to": "altpick",
+      "label": "cari lain",
+      "variant": "security"
+    },
+    {
+      "from": "altpick",
+      "to": "navigate",
+      "label": "goto",
+      "variant": "security"
+    },
+    {
+      "from": "home",
+      "to": "errdata",
+      "label": "sensor down",
+      "variant": "security",
+      "role": "error"
+    },
+    {
+      "from": "errdata",
+      "to": "erract",
+      "label": "user action",
+      "variant": "security"
+    }
+  ],
+  "meta": {
+    "title": "UM EcoPark - Flow Design",
+    "quality_profile": "showcase",
+    "animation": "none",
+    "viewBox": [
+      1160,
+      560
+    ]
+  }
+}

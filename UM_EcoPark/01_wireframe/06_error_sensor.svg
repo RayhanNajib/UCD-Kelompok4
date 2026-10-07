@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="858" viewBox="0 0 375 858"><rect x="0" y="0" width="375" height="858" fill="#ffffff"/>
+<text x="20" y="26" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#1a1a1a" text-anchor="start">09:41</text>
+<text x="355" y="26" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#6b6b6b" text-anchor="end">LTE   100%</text>
+<line x1="0" y1="38" x2="375" y2="38" stroke="#8a8a8a" stroke-width="1"/>
+<text x="20" y="66" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#1a1a1a" text-anchor="start">Sensor Tidak Merespons</text>
+<text x="355" y="66" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="400" fill="#6b6b6b" text-anchor="end">6/7</text>
+<line x1="0" y1="78" x2="375" y2="78" stroke="#8a8a8a" stroke-width="1"/>
+<g transform="translate(0,78)"><rect x="20" y="24" width="335" height="66" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="187.5" y="55.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">Data Parkir Tidak Tersedia</text>
+<text x="187.5" y="70.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="400" fill="#6b6b6b" text-anchor="middle">Sensor tidak merespons</text>
+<text x="20" y="104" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="start">Terakhir diperbarui 06.31</text>
+<text x="20" y="130" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6b6b" text-anchor="start">Status terakhir: Rektorat L1 dan L2</text>
+<text x="20" y="148" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6b6b" text-anchor="start">Level tersebut bisa berubah.</text>
+<text x="20" y="166" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6b6b" text-anchor="start">Lihat signage fisik atau coba lagi</text>
+<text x="20" y="184" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6b6b6b" text-anchor="start">dalam beberapa saat lagi.</text>
+<rect x="20" y="212" width="335" height="46" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="187.5" y="239.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1a1a1a" text-anchor="middle">Coba Lagi</text>
+<rect x="20" y="268" width="335" height="44" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="187.5" y="294.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">Lapor ke Bagian Umum</text></g>
+<line x1="0" y1="814" x2="375" y2="814" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="20" y="828" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6b6b6b" text-anchor="start">Jalur error wajib ada. Tanpa ini UI pecah saat sensor mati.</text>
+<rect x="0" y="0" width="375" height="858" rx="0" fill="none" stroke="#8a8a8a" stroke-width="1"/>
+</svg>

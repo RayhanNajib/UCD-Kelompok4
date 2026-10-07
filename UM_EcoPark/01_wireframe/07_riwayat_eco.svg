@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="858" viewBox="0 0 375 858"><rect x="0" y="0" width="375" height="858" fill="#ffffff"/>
+<text x="20" y="26" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#1a1a1a" text-anchor="start">09:41</text>
+<text x="355" y="26" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#6b6b6b" text-anchor="end">LTE   100%</text>
+<line x1="0" y1="38" x2="375" y2="38" stroke="#8a8a8a" stroke-width="1"/>
+<text x="20" y="66" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#1a1a1a" text-anchor="start">Riwayat dan Eco-Metric</text>
+<text x="355" y="66" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="400" fill="#6b6b6b" text-anchor="end">7/7</text>
+<line x1="0" y1="78" x2="375" y2="78" stroke="#8a8a8a" stroke-width="1"/>
+<g transform="translate(0,78)"><text x="20" y="30" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="19" font-weight="700" fill="#1a1a1a" text-anchor="start">Riwayat dan Dampak</text>
+<rect x="20" y="54" width="335" height="92" rx="6" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="187.5" y="98.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#1a1a1a" text-anchor="middle">42 menit</text>
+<text x="187.5" y="113.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="400" fill="#6b6b6b" text-anchor="middle">mesin idle yang dihindari minggu ini</text>
+<text x="20" y="160" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a" text-anchor="start">Rincian per hari</text>
+<text x="20" y="184" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1a1a1a" text-anchor="start">Sen</text>
+<text x="355" y="184" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1a1a1a" text-anchor="end">6 menit</text>
+<text x="20" y="206" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1a1a1a" text-anchor="start">Sel</text>
+<text x="355" y="206" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1a1a1a" text-anchor="end">9 menit</text>
+<text x="20" y="228" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1a1a1a" text-anchor="start">Rab</text>
+<text x="355" y="228" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1a1a1a" text-anchor="end">4 menit</text>
+<text x="20" y="250" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1a1a1a" text-anchor="start">Kam</text>
+<text x="355" y="250" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1a1a1a" text-anchor="end">11 menit</text>
+<rect x="20" y="274" width="335" height="8" rx="4.0" fill="#d4d4d4"/>
+<text x="20" y="294" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="400" fill="#1a1a1a" text-anchor="start">Estimasi emisi:</text>
+<text x="355" y="294" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1a1a1a" text-anchor="end">0.42 kg CO2</text>
+<rect x="20" y="318" width="335" height="42" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="187.5" y="343.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">Lihat Metodologi</text></g>
+<line x1="0" y1="814" x2="375" y2="814" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="20" y="828" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6b6b6b" text-anchor="start">Sub-tema lingkungan dari sistem yang sama. Estimasi memakai rumus UB 2024, bukan pengukuran UM.</text>
+<rect x="0" y="0" width="375" height="858" rx="0" fill="none" stroke="#8a8a8a" stroke-width="1"/>
+</svg>
