@@ -2,21 +2,21 @@ const { Penpot } = require("./penpot_sse.js");
 
 // Tokens: C:\AI AGENT\UM_EcoPark\02_brand\tokens.json -> DESIGN.md authoritative values
 const C = {
-  primary: "#0F766E",
-  primaryDark: "#0B5D57",
-  primaryLight: "#D6EFEA",
-  secondary: "#B45309",
-  accent: "#0E7490",
-  bg: "#F6F7F4",
-  surface: "#FFFFFF",
-  ink: "#0B1F1C",
-  inkMuted: "#5B6B66",
-  line: "#DCE3E0",
-  success: "#15803D",
-  danger: "#B91C1C",
-  warning: "#A16207",
+  primary: "#0f6e3d",
+    primaryDark: "#1b3a5c",
+    primaryLight: "#e8f2ea",
+    secondary: "#f2a71b",
+    accent: "#c3352b",
+    bg: "#f7f8f6",
+    surface: "#ffffff",
+    ink: "#141a16",
+    inkMuted: "#5a6560",
+    line: "#dce3dd",
+    success: "#15703c",
+    danger: "#c3352b",
+    warning: "#e8a317",
 };
-const F = "Work Sans";
+const F = "Inter";
 const W = 360;
 const H = 800;
 
@@ -28,7 +28,8 @@ const H = ${H};
 const solid = (hex) => [{ fillColor: hex, fillOpacity: 1 }];
 
 // ── helpers: idempotent so re-runs update instead of duplicating ──────────
-const old = penpot.currentPage.root.children.filter((s) => s.name.startsWith("COPARK/"));
+// Penpot normalises "/" to " / " in shape names, so match on "COPARK" alone.
+const old = penpot.currentPage.root.children.filter((s) => String(s.name).startsWith("COPARK"));
 for (const s of old) s.remove();
 
 let made = 0;
@@ -71,7 +72,7 @@ const txt = (p, x, y, s, size = 13, weight = "400", fill = C.ink, w = "auto-widt
 const appbar = (p, title, sub) => {
   rect(p, 0, 0, W, 92, C.primary, 0);
   txt(p, 24, 22, title, 20, "700", "#FFFFFF");
-  if (sub) txt(p, 24, 52, sub, 12, "400", "#B9E5DE");
+  if (sub) txt(p, 24, 52, sub, 12, "400", "#a9d4bd");
 };
 const navbar = (p, items, active) => {
   const y = H - 64;
@@ -98,9 +99,9 @@ const screens = [];
 const b1 = board("COPARK/S01 Beranda", 0);
 appbar(b1, "UM Copark", "Universitas Negeri Malang");
 rect(b1, 16, 108, W - 32, 112, C.primaryDark, 16);
-txt(b1, 32, 124, "Total Slot Tersedia", 12, "400", "#B9E5DE");
+txt(b1, 32, 124, "Total Slot Tersedia", 12, "400", "#a9d4bd");
 txt(b1, 32, 146, "1.284", 40, "700", "#FFFFFF");
-txt(b1, 32, 192, "dari 1.560 slot", 11, "400", "#8FD3C9");
+txt(b1, 32, 192, "dari 1.560 slot", 11, "400", "#7fc39a");
 rect(b1, 16, 236, W - 32, 76, C.surface, 12);
 txt(b1, 32, 252, "Gedung B", 13, "700");
 txt(b1, 32, 274, "B214, B215, B216", 11, "400", C.inkMuted);
@@ -173,9 +174,9 @@ screens.push(b3);
 const b4 = board("COPARK/S04 Navigasi", W * 3 + GAP * 3);
 appbar(b4, "Navigasi ke Slot", "Petunjuk langkah ke B214");
 rect(b4, 16, 108, W - 32, 96, C.primaryDark, 16);
-txt(b4, 32, 124, "Jarak tersisa", 12, "400", "#B9E5DE");
+txt(b4, 32, 124, "Jarak tersisa", 12, "400", "#a9d4bd");
 txt(b4, 32, 144, "120 meter", 32, "700", "#FFFFFF");
-txt(b4, 32, 182, "Estimasi 2 menit", 11, "400", "#8FD3C9");
+txt(b4, 32, 182, "Estimasi 2 menit", 11, "400", "#7fc39a");
 const steps = [
   ["Keluar dari lift lantai 1", "Sudah"],
   ["Belok kiri di koridor utama", "60 m"],
@@ -215,7 +216,7 @@ screens.push(b5);
 
 const b6 = board("COPARK/S06 Error Sensor", W * 5 + GAP * 5);
 appbar(b6, "Sensor Tidak Terbaca", "Gedung B  -  Lantai 2");
-rect(b6, 16, 108, W - 32, 176, "#FEF2F2", 12);
+rect(b6, 16, 108, W - 32, 176, "#fdf1f0", 12);
 rect(b6, 16, 108, 4, 176, C.danger, 2);
 txt(b6, 32, 128, "Sensor B214 tidak merespons", 15, "700", C.danger);
 txt(b6, 32, 158, "Status slot belum dapat dipastikan.", 11, "400", C.inkMuted);
@@ -236,10 +237,10 @@ screens.push(b6);
 const b7 = board("COPARK/S07 Kualitas Udara", W * 6 + GAP * 6);
 appbar(b7, "Kualitas Udara", "Pemantauan live kampus");
 rect(b7, 16, 108, W - 32, 140, C.primaryDark, 16);
-txt(b7, 32, 124, "Indeks Kualitas Udara", 12, "400", "#B9E5DE");
+txt(b7, 32, 124, "Indeks Kualitas Udara", 12, "400", "#a9d4bd");
 txt(b7, 32, 146, "42", 44, "700", "#FFFFFF");
-txt(b7, 76, 172, "BAIK", 14, "700", "#8FD3C9");
-txt(b7, 32, 200, "PM2.5  12 ug/m3   -   CO  0.4 ppm", 10, "400", "#8FD3C9");
+txt(b7, 76, 172, "BAIK", 14, "700", "#7fc39a");
+txt(b7, 32, 200, "PM2.5  12 ug/m3   -   CO  0.4 ppm", 10, "400", "#7fc39a");
 const aq = [
   ["Gedung A", 38, C.success],
   ["Gedung B", 44, C.success],
